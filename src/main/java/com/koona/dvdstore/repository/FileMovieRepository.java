@@ -9,13 +9,17 @@ import com.koona.dvdstore.entity.Movie;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import org.springframework.beans.factory.annotation.Value;
 
 /**
  *
  * @author Steve KOUNA
  */
 public class FileMovieRepository  implements MovieRepositoryInterface {
+    
+    @Value("${movies.file.location}")
     private File file;
+    
     public void add(Movie movie){
         FileWriter writer;
         
