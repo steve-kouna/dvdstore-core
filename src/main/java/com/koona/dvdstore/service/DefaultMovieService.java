@@ -8,11 +8,13 @@ package com.koona.dvdstore.service;
 import com.koona.dvdstore.entity.Movie;
 import com.koona.dvdstore.repository.MovieRepositoryInterface;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Steve KOUNA
  */
+@Service
 public class DefaultMovieService implements MovieServiceInterface {
     
     @Autowired

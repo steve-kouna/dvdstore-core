@@ -9,11 +9,13 @@ import com.koona.dvdstore.entity.Movie;
 import com.koona.dvdstore.service.MovieServiceInterface;
 import java.util.Scanner;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 /**
  *
  * @author Steve KOUNA
  */
+@Controller
 public class MovieController {
     
     @Autowired

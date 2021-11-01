@@ -7,14 +7,11 @@
     http://www.springframework.org/schema/context/spring-context.xsd"
 >
     <context:annotation-config/>
+    
     <context:property-placeholder location="classpath:application.properties"/>
 
-    <bean class="com.koona.dvdstore.controller.MovieController">
-    </bean>
-    <bean id="movieRepository" class="com.koona.dvdstore.repository.FileMovieRepository">
-        <!--<property name="file" value="D:\\JAVA\\LearningJava\\movies.csv"/>-->
-    </bean>
-    <bean class="com.koona.dvdstore.service.DefaultMovieService">
-    </bean>
+    <context:component-scan base-package="com.koona.dvdstore.controller"/>
+    <context:component-scan base-package="com.koona.dvdstore.service"/>
+    <context:component-scan base-package="com.koona.dvdstore.repository.memory"/>
 
 </beans>

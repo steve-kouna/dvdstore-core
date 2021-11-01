@@ -3,18 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.koona.dvdstore.repository;
+package com.koona.dvdstore.repository.file;
 
 import com.koona.dvdstore.entity.Movie;
+import com.koona.dvdstore.repository.MovieRepositoryInterface;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author Steve KOUNA
  */
+@Repository
 public class FileMovieRepository  implements MovieRepositoryInterface {
     
     @Value("${movies.file.location}")
