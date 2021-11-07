@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
  *
  * @author Steve KOUNA
  */
-@Repository
+//@Repository
 public class MemoryMovieRepository implements MovieRepositoryInterface {
     
     private static final List<Movie> movies = new ArrayList<>();
