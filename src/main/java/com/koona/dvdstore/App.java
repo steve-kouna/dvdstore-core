@@ -21,7 +21,7 @@ public class App
     {
 //        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 //        ApplicationContext context = new AnnotationConfigApplicationContext(App.class);
-        ApplicationContext context = SpringApplication.run(App.class);
+        ApplicationContext context = SpringApplication.run(App.class, args);
         MovieController movieController = context.getBean(MovieController.class);
         movieController.addUsingConsole();
     }
