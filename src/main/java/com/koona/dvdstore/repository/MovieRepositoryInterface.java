@@ -7,10 +7,13 @@ package com.koona.dvdstore.repository;
 
 import com.koona.dvdstore.entity.Movie;
 
+import java.util.List;
+
 /**
  *
  * @author Steve KOUNA
  */
 public interface MovieRepositoryInterface {
     void add (Movie movie);
+    List<Movie> list();
 }

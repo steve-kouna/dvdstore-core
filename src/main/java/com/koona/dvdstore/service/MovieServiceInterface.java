@@ -7,6 +7,8 @@ package com.koona.dvdstore.service;
 
 import com.koona.dvdstore.entity.Movie;
 
+import java.util.List;
+
 /**
  *
  * @author Steve KOUNA
@@ -14,4 +16,5 @@ import com.koona.dvdstore.entity.Movie;
 public interface MovieServiceInterface {
     void registerMovie(Movie movie);
     void goLiveMovie(Movie movie);
+    List<Movie> getMovieList();
 }

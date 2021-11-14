@@ -10,6 +10,8 @@ import com.koona.dvdstore.repository.MovieRepositoryInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  *
  * @author Steve KOUNA
@@ -36,6 +38,9 @@ public class DefaultMovieService implements MovieServiceInterface {
     public void setMovieRepository(MovieRepositoryInterface movieRepository) {
         this.movieRepository = movieRepository;
     }
-    
-    
+
+    @Override
+    public List<Movie> getMovieList() {
+        return movieRepository.list();
+    }
 }
