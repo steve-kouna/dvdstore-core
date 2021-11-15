@@ -17,4 +17,5 @@ public interface MovieServiceInterface {
     void registerMovie(Movie movie);
     void goLiveMovie(Movie movie);
     List<Movie> getMovieList();
+    Movie getMovieId(Long id);
 }
