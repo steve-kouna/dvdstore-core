@@ -19,8 +19,10 @@ import org.springframework.stereotype.Repository;
 public class MemoryMovieRepository implements MovieRepositoryInterface {
     
     private static final List<Movie> movies = new ArrayList<>();
+    private static Long id = 0L;
     
     public void add (Movie movie){
+        movie.setId(++id);
         movies.add(movie);
         System.out.println("The movie "+movie.getTitle()+" has been added.");
     }

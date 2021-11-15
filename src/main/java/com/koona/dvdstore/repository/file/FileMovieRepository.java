@@ -30,8 +30,10 @@ public class FileMovieRepository  implements MovieRepositoryInterface {
         FileWriter writer;
         
         try {
+            long lastId=list().stream().map(Movie::getId).max(Long::compare).orElse(0L);
+            movie.setId(lastId+1);
             writer = new FileWriter(file,true);
-            writer.write(movie.getTitle() + ";" + movie.getGenre() + "\n");
+            writer.write(movie.getId() + ";" + movie.getTitle() + ";" + movie.getGenre() + ";"+ movie.getDescription() +"\n");
             writer.close();
             
         } catch (IOException e) {
