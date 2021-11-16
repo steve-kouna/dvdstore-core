@@ -26,7 +26,7 @@ public class FileMovieRepository  implements MovieRepositoryInterface {
     @Value("${movies.file.location}")
     private File file;
     
-    public void add(Movie movie){
+    public Movie add(Movie movie){
         FileWriter writer;
         
         try {
@@ -35,10 +35,11 @@ public class FileMovieRepository  implements MovieRepositoryInterface {
             writer = new FileWriter(file,true);
             writer.write(movie.getId() + ";" + movie.getTitle() + ";" + movie.getGenre() + ";"+ movie.getDescription() +"\n");
             writer.close();
-            
+            return movie;
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return null;
     }
 
     public File getFile() {

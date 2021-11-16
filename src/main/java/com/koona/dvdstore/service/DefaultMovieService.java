@@ -23,8 +23,8 @@ public class DefaultMovieService implements MovieServiceInterface {
     private MovieRepositoryInterface movieRepository;
 
     
-    public void registerMovie(Movie movie) {
-        movieRepository.add(movie);
+    public Movie registerMovie(Movie movie) {
+        return movieRepository.add(movie);
     }
     
     public void goLiveMovie(Movie movie) {
