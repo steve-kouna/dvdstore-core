@@ -11,8 +11,6 @@ import com.koona.dvdstore.repository.MovieRepositoryInterface;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.apache.logging.log4j.message.LoggerNameAwareMessage;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
@@ -20,7 +18,7 @@ import org.springframework.stereotype.Repository;
  *
  * @author Steve KOUNA
  */
-@Repository
+//@Repository
 public class FileMovieRepository  implements MovieRepositoryInterface {
     
     @Value("${movies.file.location}")
