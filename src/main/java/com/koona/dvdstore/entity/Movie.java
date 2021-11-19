@@ -5,6 +5,8 @@
  */
 package com.koona.dvdstore.entity;
 
+import org.springframework.data.annotation.Id;
+
 /**
  *
  * @author Steve KOUNA
@@ -12,6 +14,8 @@ package com.koona.dvdstore.entity;
 public class Movie {
     private String title;
     private String genre;
+
+    @Id
     private Long id;
     private String description;
 

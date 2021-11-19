@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  *
@@ -24,11 +25,11 @@ public class DefaultMovieService implements MovieServiceInterface {
 
     
     public Movie registerMovie(Movie movie) {
-        return movieRepository.add(movie);
+        return movieRepository.save(movie);
     }
     
     public void goLiveMovie(Movie movie) {
-        movieRepository.add(movie);
+        movieRepository.save(movie);
     }
 
     public MovieRepositoryInterface getMovieRepository() {
@@ -40,12 +41,12 @@ public class DefaultMovieService implements MovieServiceInterface {
     }
 
     @Override
-    public List<Movie> getMovieList() {
-        return movieRepository.list();
+    public Iterable<Movie> getMovieList() {
+        return movieRepository.findAll();
     }
 
     @Override
-    public Movie getMovieId(Long id) {
-        return movieRepository.getById(id);
+    public Optional<Movie> getMovieId(Long id) {
+        return movieRepository.findById(id);
     }
 }

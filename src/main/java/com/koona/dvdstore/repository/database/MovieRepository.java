@@ -1,5 +1,6 @@
 package com.koona.dvdstore.repository.database;
 
+/*
 import com.koona.dvdstore.entity.Movie;
 import com.koona.dvdstore.repository.MovieRepositoryInterface;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,3 +51,5 @@ public class MovieRepository implements MovieRepositoryInterface {
         );
     }
 }
+
+ */

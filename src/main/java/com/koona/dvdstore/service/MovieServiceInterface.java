@@ -8,6 +8,7 @@ package com.koona.dvdstore.service;
 import com.koona.dvdstore.entity.Movie;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  *
@@ -16,6 +17,6 @@ import java.util.List;
 public interface MovieServiceInterface {
     Movie registerMovie(Movie movie);
     void goLiveMovie(Movie movie);
-    List<Movie> getMovieList();
-    Movie getMovieId(Long id);
+    Iterable<Movie> getMovieList();
+    Optional<Movie> getMovieId(Long id);
 }

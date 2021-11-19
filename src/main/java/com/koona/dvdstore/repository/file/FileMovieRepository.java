@@ -11,6 +11,9 @@ import com.koona.dvdstore.repository.MovieRepositoryInterface;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.StreamSupport;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
@@ -24,11 +27,11 @@ public class FileMovieRepository  implements MovieRepositoryInterface {
     @Value("${movies.file.location}")
     private File file;
     
-    public Movie add(Movie movie){
+    public Movie save(Movie movie){
         FileWriter writer;
         
         try {
-            long lastId=list().stream().map(Movie::getId).max(Long::compare).orElse(0L);
+            long lastId= StreamSupport.stream(findAll().spliterator(), false).map(Movie::getId).max(Long::compare).orElse(0L);
             movie.setId(lastId+1);
             writer = new FileWriter(file,true);
             writer.write(movie.getId() + ";" + movie.getTitle() + ";" + movie.getGenre() + ";"+ movie.getDescription() +"\n");
@@ -49,7 +52,7 @@ public class FileMovieRepository  implements MovieRepositoryInterface {
     }
 
     @Override
-    public List<Movie> list() {
+    public List<Movie> findAll() {
         List<Movie> movies=new ArrayList<>();
         try(BufferedReader br = new BufferedReader(new FileReader(file))) {
             for(String line; (line = br.readLine()) != null; ) {
@@ -70,7 +73,7 @@ public class FileMovieRepository  implements MovieRepositoryInterface {
     }
 
     @Override
-    public Movie getById(Long id) {
+    public Optional<Movie> findById(Long id) {
         final Movie movie = new Movie();
         movie.setId(id);
 
@@ -84,7 +87,7 @@ public class FileMovieRepository  implements MovieRepositoryInterface {
                     movie.setGenre(allProperties[2]);
                     movie.setDescription(allProperties[3]);
 
-                    return movie;
+                    return Optional.of(movie);
                 }
             }
         } catch (FileNotFoundException e) {
@@ -100,6 +103,46 @@ public class FileMovieRepository  implements MovieRepositoryInterface {
         movie.setGenre("UNKNOW");
         movie.setDescription("UNKNOW");
 
-        return movie;
+        return Optional.of(movie);
+    }
+
+    @Override
+    public <S extends Movie> Iterable<S> saveAll(Iterable<S> iterable) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean existsById(Long aLong) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Iterable<Movie> findAllById(Iterable<Long> iterable) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public long count() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void deleteById(Long aLong) {
+
+    }
+
+    @Override
+    public void delete(Movie movie) {
+
+    }
+
+    @Override
+    public void deleteAll(Iterable<? extends Movie> iterable) {
+
+    }
+
+    @Override
+    public void deleteAll() {
+
     }
 }
