@@ -5,17 +5,22 @@
  */
 package com.koona.dvdstore.entity;
 
-import org.springframework.data.annotation.Id;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  *
  * @author Steve KOUNA
  */
+@Entity
 public class Movie {
     private String title;
     private String genre;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String description;
 
