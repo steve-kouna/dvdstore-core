@@ -18,5 +18,5 @@ public interface MovieServiceInterface {
     Movie registerMovie(Movie movie);
     void goLiveMovie(Movie movie);
     Iterable<Movie> getMovieList();
-    Optional<Movie> getMovieId(Long id);
+    Movie getMovieId(Long id);
 }
